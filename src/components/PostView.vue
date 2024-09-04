@@ -24,8 +24,7 @@
     methods: {
       async fetchPost() {
         try {
-          const response = await api.getPost(this.$route.params.id);
-          this.post = response.data;
+          this.post = await api.getPostById(this.$route.params.id);
         } catch (error) {
           console.error('Error fetching post:', error);
         }

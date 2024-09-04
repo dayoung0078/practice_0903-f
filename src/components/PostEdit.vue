@@ -30,13 +30,12 @@
       };
     },
     created() {
-      this.fetchPost();
+      this.fetchPost(); //  현재 게시글의 데이터를 서버로부터 가져오는 역할
     },
     methods: {
       async fetchPost() {
         try {
-          const response = await api.getPost(this.$route.params.id);
-          this.post = response.data;
+          this.post = await api.getPostById(this.$route.params.id);
         } catch (error) {
           console.error('Error fetching post:', error);
         }
